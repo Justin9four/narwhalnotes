@@ -1,0 +1,657 @@
+.App {
+  grid-template-rows: auto 1fr auto;
+  min-height: 100%;
+  max-width: 100%;
+}
+
+.App > div {
+  grid-column-start: 1;
+  grid-column-end: 6;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 0px auto auto auto 0px;
+  grid-gap: 10px;
+}
+
+/* For Desktop */
+@media only screen and (min-width: 620px) {
+  .App > div {
+    grid-column-start: 2;
+    grid-column-end: 5;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 75px auto auto auto 75px;
+    grid-gap: 10px;
+  }
+}
+
+nav {
+  grid-column-start: span 5;
+  text-align: center;
+}
+
+.debugModule {
+  grid-column-start: span 5;
+}
+
+h2 {
+  text-align: center;
+}
+
+/* DEBUG */
+.MenuButton {
+  background-color: teal;
+  color: white;
+  border: none;
+  font-size: medium;
+  padding: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  cursor: pointer;
+}
+
+.MenuButton:hover {
+  background-color: rgb(8, 167, 167);
+}
+
+.firstMenuButton {
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.lastMenuButton {
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.RawResponseBox {
+  margin: 5px auto;
+  padding: 8px;
+  width: 500px;
+  min-height: 50px;
+  background-color: black;
+  color: lightgreen;
+  word-wrap: break-word;
+}
+
+.DisabledMenuButton {
+  background-color: grey;
+  color: white;
+  border: none;
+  font-size: medium;
+  padding: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  cursor: default;
+}
+
+.Menu {
+  margin-bottom: 5px;
+}
+
+/* APP */
+
+#signInMessage {
+  grid-column-start: span 5;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+#usernameLabel {
+  grid-column-start: 2;
+}
+
+#username {
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+
+#passwordLabel {
+  grid-column-start: 2;
+}
+
+#password {
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+
+#signInButton {
+  grid-column-start: 3;
+  background-color: rgb(161, 223, 171);
+  border: none;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 7px;
+}
+
+#signInButton:hover {
+  background-color: rgb(140, 196, 150);
+}
+
+#guestMessage {
+  grid-column-start: span 5;
+  padding: 0px 15px 50px 15px;
+  text-align: left;
+}
+
+.signInBox {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  max-width: 600px;
+  margin: auto;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.signInLabel {
+  height: 35px;
+  text-align: right;
+  padding: 7px;
+}
+
+.signInInput {
+  padding: 7px;
+  height: 35px;
+  background-color: white;
+  color: black;
+  box-sizing: border-box;
+  border: 1px solid black;
+  border-radius: 4px;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  outline: none;
+}
+
+.signInInput:focus {
+  border: 2px solid rgb(71, 235, 112);
+}
+
+.registerBox {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  max-width: 600px;
+  margin: auto;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+#registerMessage {
+  grid-column-start: span 5;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.registerLabel {
+  height: 35px;
+  text-align: right;
+  padding: 7px;
+}
+
+.registerInput {
+  padding: 7px;
+  height: 35px;
+  background-color: white;
+  color: black;
+  box-sizing: border-box;
+  border: 1px solid black;
+  border-radius: 4px;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  outline: none;
+}
+
+.registerInput:focus {
+  border: 2px solid rgb(71, 235, 112);
+}
+
+#firstNameLabel {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+#firstName {
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+
+#lastNameLabel {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+#lastName {
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+
+#emailLabel {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+#email {
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+
+#dobLabel {
+  grid-column-start: 2;
+}
+
+#dob {
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+
+#registerButton {
+  grid-column-start: 3;
+  background-color: rgb(161, 223, 171);
+  border: none;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 7px;
+  margin-bottom: 50px;
+}
+
+#registerButton:hover {
+  background-color: rgb(140, 196, 150);
+}
+
+#photoUrlLabel {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+#photoUrl {
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+
+.accountBox {
+  display: grid;
+  grid-template-columns: 175px auto auto;
+  grid-gap: 10px;
+  max-width: 600px;
+  margin: auto;
+  padding: 15px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.activeNavLink {
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+
+.inactiveNavLink {
+  color: black;
+}
+
+.errorAlert {
+  margin: 5px;
+  padding: 7px;
+  background-color: red;
+  border-radius: 5px;
+  grid-column-start: span 5;
+  word-break: break-all;
+}
+
+#accountDetails {
+  display: inline-block;
+  padding: 10px 2px 0px 10px;
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+
+.profilePhoto {
+  border-radius: 50%;
+  width: 150px;
+}
+
+.profilePhotoPreviewBox {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  text-align: center;
+}
+
+.profilePhotoPreview {
+  border: rgb(161, 223, 171) solid 5px;
+  border-radius: 50%;
+  width: 150px;
+}
+
+#profilePhotoBox {
+  margin-left: 13px;
+  margin-top: 10px;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.profilePhotoBoxPreview {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  text-align: center;
+}
+
+.profilePhotoBoxPreview > img:hover {
+  cursor: pointer;
+}
+
+.profilePhotoBorder {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  border: rgb(161, 223, 171) solid 5px;
+  position: absolute;
+  left: -5px;
+  top: -5px;
+  z-index: 1;
+}
+
+.adminBadge {
+  position: absolute;
+  left: 12.5px;
+  bottom: 10px;
+  background-color: rgba(161, 223, 171, 0.904);
+  color: black;
+  padding: 0px;
+  width: 125px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  border-bottom-left-radius: 300px;
+  border-bottom-right-radius: 300px;
+}
+
+#updateAccountButton {
+  grid-column-start: 3;
+  background-color: rgb(161, 223, 171);
+  border: none;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 7px;
+  margin-bottom: 10px;
+}
+
+#updateAccountButton:hover {
+  background-color: rgb(140, 196, 150);
+}
+
+#updateAccountLinkButton {
+  grid-column-start: 2;
+  background-color: rgb(161, 223, 171);
+  border: none;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 7px;
+  margin-bottom: 10px;
+}
+
+#updateAccountLinkButton:hover {
+  background-color: rgb(140, 196, 150);
+}
+
+#signOutButton {
+  grid-column-start: 2;
+  background-color: rgb(255, 249, 249);
+  border: solid;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 7px;
+  margin-bottom: 10px;
+}
+
+#signOutButton:hover {
+  background-color: lightgray;
+}
+
+#deleteAccountButton {
+  grid-column-start: 2;
+  background-color: rgb(255, 81, 81);
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 7px;
+  margin-bottom: 50px;
+}
+
+#deleteAccountButton:hover {
+  background-color: red;
+}
+
+.updateAccountBox {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  max-width: 600px;
+  margin: auto;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.updateAccountLabel {
+  height: 35px;
+  text-align: right;
+  padding: 7px;
+}
+
+.updateAccountInput {
+  padding: 7px;
+  height: 35px;
+  background-color: white;
+  color: black;
+  box-sizing: border-box;
+  border: 1px solid black;
+  border-radius: 4px;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  outline: none;
+}
+
+.updateAccountInput:focus {
+  border: 2px solid rgb(71, 235, 112);
+}
+
+.header {
+  background-color: rgb(75, 124, 214);
+  height: 100px;
+  box-shadow: 0 8px 16px 0 rgba(75, 124, 214, 0.493);
+}
+
+.profilePhotoBoxHeader {
+  float: right;
+  padding: 5px;
+}
+
+.profilePhotoHeader {
+  border-radius: 50%;
+  width: 80px;
+  border: rgb(161, 223, 171) solid 5px;
+}
+
+.signInHeader {
+  color: white;
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  background-color: rgb(0, 0, 0);
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 7px;
+  margin-top: 15px;
+  margin-right: 15px;
+}
+
+.logoBox {
+  float: left;
+  position: relative;
+}
+
+.logoText {
+  display: none;
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  font-size: 24px;
+  position: absolute;
+  left: 139px;
+  top: -5px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: linear-gradient(
+    to right,
+    rgba(75, 124, 214, 0),
+    rgba(75, 124, 214, 0.9),
+    rgba(75, 124, 214, 1)
+  );
+  padding-bottom: 10px;
+}
+
+@media only screen and (min-width: 620px) {
+  .logoText {
+    display: inline;
+  }
+}
+
+.logo {
+  width: 200px;
+  display: inline;
+  margin: 0px;
+  position: absolute;
+  left: 5px;
+}
+
+.fadeIn {
+  -webkit-animation: fadein 3s forwards; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 3s forwards; /* Firefox < 16 */
+  -ms-animation: fadein 3s forwards; /* Internet Explorer */
+  -o-animation: fadein 3s forwards; /* Opera < 12.1 */
+  animation: fadein 3s forwards;
+}
+
+.fadeOut {
+  -webkit-animation: fadeout 3s forwards; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadeout 3s forwards; /* Firefox < 16 */
+  -ms-animation: fadeout 3s forwards; /* Internet Explorer */
+  -o-animation: fadeout 3s forwards; /* Opera < 12.1 */
+  animation: fadeout 3s forwards;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
