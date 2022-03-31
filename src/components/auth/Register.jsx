@@ -1,8 +1,8 @@
 import {useState, useEffect} from "react";
 import {useNavigate, useOutletContext} from "react-router-dom";
-import Registration from "../DataClasses/Registration";
-import {register} from "../API";
-import ErrorAlert from "./ErrorAlert";
+import Registration from "../../DataClasses/Registration";
+import {register} from "../../API";
+import ErrorAlert from "../ErrorAlert";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -12,7 +12,6 @@ const Register = () => {
   const [user] = useOutletContext();
   useEffect(() => {
     if (response) {
-      console.log(response);
       navigate("/account");
     }
   }, [response, navigate]);

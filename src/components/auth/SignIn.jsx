@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from "react";
 import {useNavigate, useOutletContext} from "react-router-dom";
-import Authentication from "../DataClasses/Authentication";
-import {authenticate} from "../API";
-import ErrorAlert from "./ErrorAlert";
+import Authentication from "../../DataClasses/Authentication";
+import {authenticate} from "../../API";
+import ErrorAlert from "../ErrorAlert";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -12,7 +12,6 @@ const SignIn = () => {
   const [user] = useOutletContext();
   useEffect(() => {
     if (response) {
-      console.log(response);
       setTimeout(() => navigate("/account"), 2000);
     }
   }, [response, navigate]);

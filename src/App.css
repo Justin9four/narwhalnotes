@@ -2,6 +2,7 @@
   grid-template-rows: auto 1fr auto;
   min-height: 100%;
   max-width: 100%;
+  overflow: hidden;
 }
 
 .App > div {
@@ -16,7 +17,7 @@
 }
 
 /* For Desktop */
-@media only screen and (min-width: 620px) {
+@media only screen and (min-width: 640px) {
   .App > div {
     grid-column-start: 2;
     grid-column-end: 5;
@@ -94,6 +95,17 @@ h2 {
 }
 
 /* APP */
+
+.splashPage {
+  margin: auto;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+#welcomeMessage {
+  padding: 0px 10px;
+}
 
 #signInMessage {
   grid-column-start: span 5;
@@ -278,13 +290,17 @@ h2 {
 
 .accountBox {
   display: grid;
-  grid-template-columns: 175px auto auto;
+  grid-template-columns: 140px 1fr 1fr;
   grid-gap: 10px;
   max-width: 600px;
   margin: auto;
   padding: 15px;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.accountBox p {
+  overflow-wrap: break-word;
 }
 
 .activeNavLink {
@@ -307,15 +323,15 @@ h2 {
 }
 
 #accountDetails {
-  display: inline-block;
-  padding: 10px 2px 0px 10px;
+  display: inline;
+  padding: 10px 5px;
   grid-column-start: 2;
   grid-column-end: 4;
 }
 
 .profilePhoto {
   border-radius: 50%;
-  width: 150px;
+  width: 130px;
 }
 
 .profilePhotoPreviewBox {
@@ -333,8 +349,8 @@ h2 {
 #profilePhotoBox {
   margin-left: 13px;
   margin-top: 10px;
-  width: 150px;
-  height: 150px;
+  width: 130px;
+  height: 130px;
   position: relative;
   grid-column-start: 1;
   grid-column-end: 2;
@@ -352,8 +368,8 @@ h2 {
 
 .profilePhotoBorder {
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
+  width: 130px;
+  height: 130px;
   border: rgb(161, 223, 171) solid 5px;
   position: absolute;
   left: -5px;
@@ -363,12 +379,12 @@ h2 {
 
 .adminBadge {
   position: absolute;
-  left: 12.5px;
+  left: 8px;
   bottom: 10px;
   background-color: rgba(161, 223, 171, 0.904);
   color: black;
   padding: 0px;
-  width: 125px;
+  width: 115px;
   height: 25px;
   text-align: center;
   line-height: 25px;
@@ -394,6 +410,7 @@ h2 {
 
 #updateAccountLinkButton {
   grid-column-start: 2;
+  grid-column-end: 4;
   background-color: rgb(161, 223, 171);
   border: none;
   color: black;
@@ -402,6 +419,8 @@ h2 {
   padding: 10px 20px;
   border-radius: 7px;
   margin-bottom: 10px;
+  height: 40px;
+  max-width: 175px;
 }
 
 #updateAccountLinkButton:hover {
@@ -410,14 +429,17 @@ h2 {
 
 #signOutButton {
   grid-column-start: 2;
+  grid-column-end: 4;
   background-color: rgb(255, 249, 249);
-  border: solid;
+  border: solid black 1px;
   color: black;
   text-decoration: none;
   cursor: pointer;
   padding: 10px 20px;
   border-radius: 7px;
   margin-bottom: 10px;
+  height: 40px;
+  max-width: 175px;
 }
 
 #signOutButton:hover {
@@ -426,6 +448,7 @@ h2 {
 
 #deleteAccountButton {
   grid-column-start: 2;
+  grid-column-end: 4;
   background-color: rgb(255, 81, 81);
   color: black;
   text-decoration: none;
@@ -433,10 +456,116 @@ h2 {
   padding: 10px 20px;
   border-radius: 7px;
   margin-bottom: 50px;
+  height: 40px;
+  max-width: 175px;
 }
 
 #deleteAccountButton:hover {
   background-color: red;
+}
+
+.usersBox {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  max-width: 600px;
+  margin: auto;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.userCard {
+  grid-column: span 5;
+  border: solid black 1px;
+  border-radius: 7px;
+  display: grid;
+  grid-template-columns: 215px auto 30px;
+}
+
+.userCard > div {
+  padding: 7px;
+}
+
+.userCardUsername {
+  font-weight: bold;
+}
+
+.userCardAdmin {
+  color: green;
+}
+
+.userCardDisabled {
+  color: red;
+}
+
+#usersPageMessage {
+  grid-column-start: span 5;
+  padding: 0px 2px;
+}
+
+.userCardMenu {
+  position: relative;
+  display: inline-block;
+}
+
+.userCardMenuButton {
+  width: 30px;
+  height: 100%;
+  background-color: black;
+  border: none;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+}
+
+.userCardMenuButton > div {
+  writing-mode: vertical-lr;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  line-height: 30px;
+}
+
+.userCardMenuButton:hover {
+  background-color: rgb(58, 58, 58);
+}
+
+.userCardMenuContent {
+  display: none;
+}
+
+.userCardMenuContentSelected {
+  display: inline-block;
+  position: absolute;
+  right: 30px;
+  top: 0px;
+  width: 220px;
+  z-index: 1;
+  height: 80px;
+  background-color: white;
+  border: solid black 1px;
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+  white-space: nowrap;
+}
+
+.userCardMenuContentSelected > button {
+  color: black;
+  display: inline-block;
+  width: 45%;
+  height: 100%;
+  background-color: lightgray;
+  border: none;
+  border-radius: 7px;
+  font-size: 14px;
+  white-space: normal;
+  overflow: hidden;
+}
+
+.userCardMenuContentSelected button:hover {
+  background-color: white;
 }
 
 .updateAccountBox {
@@ -472,21 +601,259 @@ h2 {
   border: 2px solid rgb(71, 235, 112);
 }
 
+.notesBox {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  max-width: 600px;
+  margin: auto;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.noNotes {
+  grid-column-start: span 5;
+}
+
+.notesOptionsMain {
+  grid-column-start: span 5;
+  height: 40px;
+}
+
+#createNoteButton {
+  height: 40px;
+  width: 60px;
+  font-size: 16px;
+  background-color: rgb(161, 223, 171);
+  border: none;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 8px 7px;
+  border-radius: 7px;
+  margin-right: 7px;
+}
+
+#createNoteButton:hover {
+  background-color: rgb(140, 196, 150);
+}
+
+#removeNotesButton {
+  height: 40px;
+  width: 75px;
+  font-size: 14px;
+  background-color: rgb(255, 81, 81);
+  border: none;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 3px 7px;
+  border-radius: 7px;
+  position: relative;
+  top: -8px;
+}
+
+#removeNotesButton:hover {
+  background-color: red;
+}
+
+#notesList {
+  grid-column-start: span 5;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.noteEditorBox {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  max-width: 600px;
+  margin: auto;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.noteContent {
+  width: 100%;
+  min-height: 60px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  padding: 10px;
+  box-sizing: border-box;
+  resize: none;
+  overflow: hidden;
+}
+
+#notesNavLink {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  background-color: rgb(255, 255, 255);
+  border: solid black 1px;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 8px 10px;
+  border-radius: 7px;
+  margin-bottom: 7px;
+}
+
+#notesNavLink:hover {
+  background-color: lightgray;
+}
+
+#saveNoteButton {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  background-color: rgb(161, 223, 171);
+  border: none;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 7px;
+  margin-bottom: 7px;
+  margin-left: 7px;
+}
+
+#saveNoteButton:hover {
+  background-color: rgb(140, 196, 150);
+}
+
+#removeNoteButton {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  background-color: rgb(255, 81, 81);
+  border: none;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 7px;
+  margin-bottom: 7px;
+  margin-left: 7px;
+}
+
+#removeNoteButton:hover {
+  background-color: red;
+}
+
 .header {
   background-color: rgb(75, 124, 214);
   height: 100px;
   box-shadow: 0 8px 16px 0 rgba(75, 124, 214, 0.493);
 }
 
+.NotesNavLink {
+  font-size: 18px;
+  color: black;
+  text-decoration: underline;
+  float: right;
+  margin: 15px;
+  margin-left: 7px;
+  margin-right: 7px;
+  margin-top: 40px;
+}
+
+.UsersNavLink {
+  font-size: 18px;
+  color: black;
+  text-decoration: underline;
+  float: right;
+  margin: 0px;
+  margin-top: 40px;
+}
+
+.noteCard {
+  transition: 0.3s;
+  border-radius: 5px;
+  width: 100%;
+  height: 160px;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+.noteCard:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.noteCardBorder {
+  border: solid black 1px;
+}
+
+.noteCardBorderSelected {
+  border: solid rgb(161, 223, 171) 3px;
+  border-radius: 5px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.noteCardTitle {
+  background-color: rgb(190, 205, 233);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 5px;
+  border-bottom: solid black 1px;
+}
+
+.noteCardTitle div {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+}
+
+.noteCardText {
+  font-size: 12px;
+  margin: 5px;
+  overflow: hidden;
+  height: 105px;
+}
+
+.OptionsBar {
+  padding: 4px;
+  position: absolute;
+  z-index: 10;
+  bottom: 0px;
+  width: 100%;
+  height: 108px;
+}
+
+.hiddenOptionsBar {
+  display: none;
+}
+
+.openNoteButton {
+  margin: 0px;
+  padding: 10px 20px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  right: 5px;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  color: black;
+  border: none;
+  border-top: solid black 1px;
+}
+
+.openNoteButton:hover {
+  color: green;
+}
+
 .profilePhotoBoxHeader {
   float: right;
-  padding: 5px;
+  padding-top: 15px;
+  padding-right: 4px;
+  padding-left: 8px;
 }
 
 .profilePhotoHeader {
   border-radius: 50%;
-  width: 80px;
-  border: rgb(161, 223, 171) solid 5px;
+  width: 60px;
+  border: rgb(161, 223, 171) solid 3px;
 }
 
 .signInHeader {
@@ -500,7 +867,7 @@ h2 {
   text-decoration: none;
   cursor: pointer;
   border-radius: 7px;
-  margin-top: 15px;
+  margin-top: 10px;
   margin-right: 15px;
 }
 
@@ -516,7 +883,7 @@ h2 {
   color: black;
   font-size: 24px;
   position: absolute;
-  left: 139px;
+  left: 110px;
   top: -5px;
   font-family: Arial, Helvetica, sans-serif;
   background-image: linear-gradient(
@@ -528,18 +895,17 @@ h2 {
   padding-bottom: 10px;
 }
 
-@media only screen and (min-width: 620px) {
+@media only screen and (min-width: 640px) {
   .logoText {
     display: inline;
   }
 }
 
 .logo {
-  width: 200px;
+  width: 120px;
   display: inline;
-  margin: 0px;
-  position: absolute;
-  left: 5px;
+  margin-left: 5px;
+  padding-top: 20px;
 }
 
 .fadeIn {

@@ -1,8 +1,8 @@
 import {useState, useEffect} from "react";
 import {useNavigate, useOutletContext} from "react-router-dom";
-import UpdateUserClass from "../DataClasses/UpdateUserClass";
-import {updateUser} from "../API";
-import ErrorAlert from "./ErrorAlert";
+import UpdateUserClass from "../../DataClasses/UpdateUserClass";
+import {updateUser} from "../../API";
+import ErrorAlert from "../ErrorAlert";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -15,7 +15,6 @@ const Register = () => {
 
   useEffect(() => {
     if (response) {
-      console.log(response);
       navigate("/account");
     }
   }, [response, navigate]);

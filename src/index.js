@@ -4,13 +4,15 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
-import SignIn from "./components/SignIn";
-import Register from "./components/Register";
+import SignIn from "./components/auth/SignIn";
+import Register from "./components/auth/Register";
 import Debug from "./components/debug/Debug";
-import AccountPage from "./components/AccountPage";
-import UpdateAccount from "./components/UpdateAccount";
+import AccountPage from "./components/auth/AccountPage";
+import UpdateAccount from "./components/auth/UpdateAccount";
 import SplashPage from "./components/SplashPage";
-import NotesPage from "./components/NotesPage";
+import NotesPage from "./components/notes/NotesPage";
+import NoteEditor from "./components/notes/NoteEditor";
+import Users from "./components/admin/Users";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -24,6 +26,8 @@ ReactDOM.render(
           <Route path="update-account" element={<UpdateAccount />} />
           <Route path="dev" element={<Debug />} />
           <Route path="notes" element={<NotesPage />} />
+          <Route path="note" element={<NoteEditor />} />
+          <Route path="users" element={<Users />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>

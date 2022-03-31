@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from "react";
 import {useNavigate, useOutletContext} from "react-router-dom";
-import {signOutUser, deleteUser} from "../API";
+import {signOutUser, deleteUser} from "../../API";
 import {getAuth, signOut as signOutFirebase} from "firebase/auth";
-import ErrorAlert from "./ErrorAlert";
+import ErrorAlert from "../ErrorAlert";
 
 const AccountPage = () => {
   const navigate = useNavigate();
@@ -44,7 +44,6 @@ const AccountPage = () => {
   const signOut = () => {
     signOutFirebase(auth)
       .then(() => {
-        console.log("logout successful");
         signOutUser(() => {
           navigate("/");
         }, setServerError);
@@ -103,13 +102,13 @@ const AccountPage = () => {
                 navigate("/update-account");
               }}
             >
-              Update Account
+              Update
             </button>
             <button id="signOutButton" onClick={signOut}>
               Sign Out
             </button>
             <button id="deleteAccountButton" onClick={tryDeleteUser}>
-              Delete Account
+              Delete
             </button>
           </>
         ) : null}

@@ -57,7 +57,10 @@ const APICallFactory = (
         } else {
           errorCallback(new NetworkError("Network Error: " + error.message));
         }
-      } else errorCallback(new NetworkError(error.message));
+      } else {
+        if (error.message) errorCallback(new NetworkError(error.message));
+        else errorCallback("Server Error");
+      }
     });
 };
 
@@ -67,21 +70,16 @@ const getAPIData = (dataCallback, errorCallback) => {
 
 const processAuthToken = (authToken) => {
   if (authToken !== null) {
-    const dataCallback = (data) => {
-      console.log(data);
-    };
+    const dataCallback = () => {};
     const errorCallback = (error) => {
       console.error(error);
     };
-    console.log("Processing Auth Token");
     const auth = getAuth(firebaseApp);
     signInWithCustomToken(auth, authToken)
       .then((userCredential) => {
-        console.log("Firebase Authenticated UID: " + userCredential.user.uid);
         auth.currentUser
           .getIdToken(true)
           .then((idToken) => {
-            console.log(`idToken: ${idToken}`);
             APICallFactory(
               "api/checkToken",
               "POST",
@@ -221,10 +219,42 @@ const enableDisableAccount = (
 };
 
 const getNotes = (notesData, dataCallback, errorCallback) => {
+  let uri = "api/user/note";
+  if (notesData && notesData.id) {
+    uri += `?id=${notesData.id}`;
+  }
+  APICallFactory(uri, "GET", null, false, null, dataCallback, errorCallback);
+};
+
+const createNote = (createNoteData, dataCallback, errorCallback) => {
   APICallFactory(
-    "api/note",
-    "GET",
-    notesData,
+    "api/user/note",
+    "PUT",
+    createNoteData,
+    false,
+    null,
+    dataCallback,
+    errorCallback
+  );
+};
+
+const updateNote = (updateNoteData, dataCallback, errorCallback) => {
+  APICallFactory(
+    "api/user/note",
+    "POST",
+    updateNoteData,
+    false,
+    null,
+    dataCallback,
+    errorCallback
+  );
+};
+
+const deleteNote = (id, dataCallback, errorCallback) => {
+  APICallFactory(
+    "api/user/note",
+    "DELETE",
+    {id},
     false,
     null,
     dataCallback,
@@ -244,5 +274,8 @@ export {
   promoteDemoteAccount,
   enableDisableAccount,
   processAuthToken,
-  getNotes
+  getNotes,
+  createNote,
+  updateNote,
+  deleteNote
 };

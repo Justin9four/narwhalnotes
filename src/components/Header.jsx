@@ -30,6 +30,18 @@ const Header = ({user}) => {
           )}
         </div>
       </NavLink>
+      {user ? (
+        <>
+          <NavLink to="/notes">
+            <div className="NotesNavLink">Notes</div>
+          </NavLink>
+          {user.roles.includes("ROLE_ADMIN") ? (
+            <NavLink to="/users">
+              <div className="UsersNavLink">Users</div>
+            </NavLink>
+          ) : null}
+        </>
+      ) : null}
     </nav>
   );
 };
